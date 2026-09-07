@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="scanning_world">
+
+    <!-- Physics Engine Configuration -->
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <!-- Essential Gazebo Plugins -->
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <!-- Sun & Lighting -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun</uri>
+    </include>
+
+    <!-- Default Ground Plane -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri>
+    </include>
+
+    <!-- 1. Floor Layout Model -->
+    <include>
+      <name>floor_layout</name>
+      <pose>0 0 0 0 0 0</pose>
+      <uri>model://floor_layout</uri>
+    </include>
+
+    <!-- 2. Obstacles, Columns, and Workstation Model -->
+    <include>
+      <name>obstacles_and_coloumn_and_WS</name>
+      <pose>0 0 0 0 0 0</pose>
+      <uri>model://Obstacles</uri>
+    </include>
+
+    <!-- 3. Static Inspection Car Model -->
+    <include>
+      <name>inspection_car</name>
+      <pose>3.0 0.0 0.0 0 0 0</pose> <!-- Adjust X, Y, Z, yaw to match your workcell -->
+      <uri>model://inspection_car</uri>
+    </include>
+
+  </world>
+</sdf>

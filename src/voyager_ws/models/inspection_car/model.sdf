@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="inspection_car">
+    <static>true</static>  <!-- Locks the CAD in place and disables physics calculations -->
+    <link name="link">
+      <!-- Collision Mesh: simplified or exact CAD -->
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://inspection_car/meshes/car_body.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <!-- Visual Mesh: high-res CAD for optical/sensor scanning -->
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://inspection_car/meshes/car_body.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1.0</ambient>
+          <diffuse>0.8 0.8 0.8 1.0</diffuse>
+          <specular>0.2 0.2 0.2 1.0</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

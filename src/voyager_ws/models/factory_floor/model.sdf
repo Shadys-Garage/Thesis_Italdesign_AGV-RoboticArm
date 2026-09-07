@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <model name="factory_floor">
+    
+    <!-- Makes the walls immovable so the robot can bump into them -->
+    <static>true</static>
+    
+    <link name="walls_link">
+      
+     <!-- Visual geometry -->
+      <visual name="walls_visual">
+        <geometry>
+          <mesh>
+            <uri>model://factory_floor/meshes/floor_layout.stl</uri>
+          </mesh>
+        </geometry>
+        <!-- ADD THIS MATERIAL BLOCK -->
+        <material>
+          <ambient>0.1 0.3 0.6 1.0</ambient>
+          <diffuse>0.1 0.3 0.6 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1.0</specular>
+        </material>
+      </visual>
+
+      <!-- Collision geometry -->
+      <collision name="walls_collision">
+        <geometry>
+          <mesh>
+            <uri>model://factory_floor/meshes/floor_layout.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+    </link>
+  </model>
+</sdf>

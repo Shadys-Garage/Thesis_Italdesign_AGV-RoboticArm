@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot name="otto_fanuc_system" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <!-- 1. Include the OTTO 1500 AGV directly -->
+  <xacro:include filename="$(find otto1500_description)/urdf/OTTO1500.urdf.xacro" />
+
+  <!-- 2. Include the Fanuc Arm Macro -->
+  <xacro:include filename="$(find voyager_ws_description)/urdf/m710ic50_macro.xacro" />
+
+  <!-- 3. Instantiate the Fanuc Arm with a prefix -->
+  <xacro:fanuc_m710ic50 prefix="arm_" />
+
+  <!-- 4. Bolt the arm to the AGV -->
+  <joint name="agv_to_arm_joint" type="fixed">
+    <!-- Assuming the OTTO 1500's main body is 'base_link' -->
+    <parent link="base_link" />
+    <!-- The arm's root link gets the 'arm_' prefix -->
+    <child link="arm_base_link" />
+    
+    <!-- ADJUST Z-VALUE: Set this to the height of the OTTO 1500's top deck -->
+    <origin xyz="0.0 0.0 0.4" rpy="0 0 0" /> 
+  </joint>
+
+</robot>

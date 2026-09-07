@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="obstacles_and_coloumn_and_WS">
+    <static>true</static>
+    <link name="environment_link">
+      
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://obstacles_and_coloumn_and_WS/meshes/environment.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://obstacles_and_coloumn_and_WS/meshes/environment.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.6 0.6 0.6 1.0</ambient>
+          <diffuse>0.6 0.6 0.6 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1.0</specular>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf> 
